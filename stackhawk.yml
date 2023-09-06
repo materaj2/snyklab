@@ -1,0 +1,10 @@
+jobs:
+  stackhawk-hawkscan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: stackhawk/hawkscan-action@v2.1.0
+    with:
+      installCLIOnly: true
+    - name: Run CLI Scan
+      run: hawk --api-key=${{ secrets.HAWK_API_KEY }} scan
